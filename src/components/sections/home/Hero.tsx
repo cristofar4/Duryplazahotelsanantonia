@@ -2,11 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronDown } from "lucide-react";
 import { img } from "@/lib/utils";
 import { HOTEL } from "@/lib/data";
 import TextReveal from "@/components/anim/TextReveal";
@@ -101,9 +99,8 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 1, ease }}
-            className="mb-6 flex items-center gap-3"
+            className="mb-6"
           >
-            <span className="h-px w-12 bg-champagne" />
             <span className="eyebrow text-champagne-light">
               San Antonio River Walk
             </span>
@@ -132,7 +129,7 @@ export default function Hero() {
             transition={{ delay: 1.9, duration: 1 }}
             className="mt-7 max-w-lg font-sans text-base leading-relaxed text-ivory/75 md:text-lg"
           >
-            A restored 1929 landmark rising above the water&apos;s edge — where
+            A restored 1929 landmark rising above the water&apos;s edge, where
             timeless architecture meets the warmth of true Texan hospitality.
           </motion.p>
         </div>
@@ -147,29 +144,6 @@ export default function Hero() {
           <BookingWidget variant="glass" />
         </motion.div>
       </div>
-
-      {/* Scroll cue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.4, duration: 1 }}
-        className="pointer-events-none absolute bottom-6 right-6 z-10 hidden items-center gap-2 text-ivory/50 lg:flex"
-      >
-        <Link
-          href="#story"
-          className="pointer-events-auto flex flex-col items-center gap-2"
-        >
-          <span className="eyebrow rotate-90 [writing-mode:vertical-rl]">
-            Scroll
-          </span>
-          <motion.span
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          >
-            <ChevronDown className="h-4 w-4" />
-          </motion.span>
-        </Link>
-      </motion.div>
     </section>
   );
 }

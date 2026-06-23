@@ -5,7 +5,7 @@ import { formatCurrency } from "@/lib/utils";
 
 import Hero from "@/components/sections/home/Hero";
 import StatsBand from "@/components/sections/home/StatsBand";
-import StoryTimeline from "@/components/sections/home/StoryTimeline";
+import CinematicStory from "@/components/sections/home/CinematicStory";
 import RiverwalkExperience from "@/components/sections/home/RiverwalkExperience";
 import AmenityGrid from "@/components/sections/AmenityGrid";
 import Testimonials from "@/components/sections/Testimonials";
@@ -29,8 +29,7 @@ export default function HomePage() {
         <div className="container-luxe grid gap-16 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6 lg:pr-10">
             <Reveal>
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-12 bg-champagne" />
+              <div className="mb-6">
                 <span className="eyebrow text-champagne-dark">A Landmark Welcome</span>
               </div>
             </Reveal>
@@ -96,7 +95,7 @@ export default function HomePage() {
       </section>
 
       <StatsBand />
-      <StoryTimeline />
+      <CinematicStory />
       <RiverwalkExperience />
 
       {/* Rooms preview */}

@@ -43,9 +43,8 @@ export default function PageHero({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 1 }}
-          className="mb-5 flex items-center gap-3"
+          className="mb-5"
         >
-          <span className="h-px w-12 bg-champagne" />
           <span className="eyebrow text-champagne-light">{eyebrow}</span>
         </motion.div>
         <TextReveal

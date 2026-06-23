@@ -31,8 +31,7 @@ export default function SectionHeading({
     >
       {eyebrow && (
         <Reveal>
-          <div className="mb-5 flex items-center gap-3">
-            <span className="h-px w-10 bg-champagne" />
+          <div className="mb-5">
             <span
               className={cn(
                 "eyebrow",

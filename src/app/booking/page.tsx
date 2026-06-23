@@ -21,8 +21,7 @@ export default function BookingPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-ink-950/50" />
         <div className="container-luxe relative pb-12">
-          <div className="mb-4 flex items-center gap-3">
-            <span className="h-px w-12 bg-champagne" />
+          <div className="mb-4">
             <span className="eyebrow text-champagne-light">Reservations</span>
           </div>
           <h1 className="font-serif text-hero-sm text-ivory">Book your stay</h1>

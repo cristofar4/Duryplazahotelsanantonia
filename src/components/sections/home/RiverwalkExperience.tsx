@@ -36,8 +36,7 @@ export default function RiverwalkExperience() {
       <div className="container-luxe relative z-10 py-28">
         <div className="max-w-2xl">
           <Reveal>
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-12 bg-champagne" />
+            <div className="mb-6">
               <span className="eyebrow text-champagne-light">Paseo del Río</span>
             </div>
           </Reveal>
