@@ -6,7 +6,7 @@ services:
     name: drury-plaza-riverwalk
     runtime: static
     buildCommand: npm install && npm run build
-    staticPublishPath: out
+    staticPublishPath: dist
     pullRequestPreviewsEnabled: true
     routes:
       # Serve the generated 404 page for unknown paths.
