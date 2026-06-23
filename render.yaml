@@ -1,0 +1,19 @@
+# Render Blueprint — deploys the site as a Static Site.
+# In Render: New + → Blueprint → connect this repo, or configure a Static
+# Site manually with the Build Command and Publish Directory below.
+services:
+  - type: web
+    name: drury-plaza-riverwalk
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: out
+    pullRequestPreviewsEnabled: true
+    routes:
+      # Serve the generated 404 page for unknown paths.
+      - type: rewrite
+        source: /404
+        destination: /404.html
+    headers:
+      - path: /_next/static/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
