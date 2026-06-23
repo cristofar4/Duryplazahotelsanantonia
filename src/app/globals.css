@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 30 16% 8%;
+    --card: 40 33% 98%;
+    --card-foreground: 30 16% 8%;
+    --primary: 38 44% 59%;
+    --primary-foreground: 30 30% 8%;
+    --secondary: 40 20% 90%;
+    --secondary-foreground: 30 16% 12%;
+    --muted: 40 18% 90%;
+    --muted-foreground: 33 10% 38%;
+    --accent: 38 44% 59%;
+    --accent-foreground: 30 30% 8%;
+    --border: 36 18% 84%;
+    --input: 36 18% 82%;
+    --ring: 38 44% 59%;
+    --radius: 0.25rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: auto; /* Lenis handles smoothing */
+  }
+
+  body {
+    @apply bg-ivory text-ink font-sans;
+    font-feature-settings: "ss01", "cv01", "kern";
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: theme("colors.champagne.DEFAULT");
+    color: theme("colors.ink.950");
+  }
+
+  /* Refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme("colors.ink.950");
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme("colors.stone.700");
+    border: 2px solid theme("colors.ink.950");
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme("colors.champagne.dark");
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .container-luxe {
+    @apply mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-luxe;
+  }
+
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(100deg, #E2CD9C 0%, #C6A867 38%, #A8854A 72%, #E2CD9C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-champagne/40 to-transparent;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(20, 18, 14, 0.45);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(226, 205, 156, 0.16);
+  }
+  .glass-light {
+    background: rgba(247, 242, 233, 0.7);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  /* Cinematic image vignette */
+  .vignette::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 120% at 50% 30%, transparent 40%, rgba(11,10,8,0.55) 100%);
+    pointer-events: none;
+  }
+
+  /* Animated underline link */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Film grain overlay */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Mask for reveal: clip from bottom */
+  .clip-reveal {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  .perspective {
+    perspective: 1200px;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Prevent FOUC for GSAP reveal elements */
+.gsap-fade {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gsap-fade {
+    opacity: 1 !important;
+  }
+  .animate-kenburns,
+  .animate-marquee {
+    animation: none !important;
+  }
+}
